@@ -44,17 +44,25 @@ function App() {
     setUsers(sorted);
   };
 
+  const columns = [
+    { field: "id", label: "ID" },
+    { field: "firstName", label: "First Name" },
+    { field: "lastName", label: "Last Name" },
+    { field: "email", label: "Email" },
+    { field: "phone", label: "Phone" },
+  ];
+
   return (
     <>
       <h1>Users</h1>
       <table>
         <thead>
           <tr>
-            <th onClick={() => handleSort("id")}>id</th>
-            <th onClick={() => handleSort("firstName")}>firstName</th>
-            <th onClick={() => handleSort("lastName")}>lastName</th>
-            <th onClick={() => handleSort("email")}>email</th>
-            <th onClick={() => handleSort("phone")}>phone</th>
+            {columns.map((column) => (
+              <th key={column.field} onClick={() => handleSort(column.field)}>
+                {column.label}
+              </th>
+            ))}
             <th>actions</th>
           </tr>
         </thead>
@@ -73,7 +81,9 @@ function App() {
               <td>{user.email}</td>
               <td>{user.phone}</td>
               <td>
-                <button onClick={() => handleDelete(user.id)}>Delete</button>
+                <button className="del" onClick={() => handleDelete(user.id)}>
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

@@ -36,7 +36,7 @@ th {
   cursor: pointer;
 }
 
-button {
+.del {
   background-color: #cc5864;
   color: #fff;
   border: none;
@@ -46,7 +46,7 @@ button {
   transition: all 0.3s ease-in-out;
 }
 
-button:hover {
+.del:hover {
   background-color: #d83142;
 }
 
